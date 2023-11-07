@@ -2,11 +2,13 @@ package com.ozcanbayram.catchthejerry
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.ozcanbayram.catchthejerry.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    var score = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,4 +16,10 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
     }
+
+    fun increaseScore(view : View){
+        score = score + 1
+        binding.scoreText.text = "Score: ${score}"
+    }
+
 }
