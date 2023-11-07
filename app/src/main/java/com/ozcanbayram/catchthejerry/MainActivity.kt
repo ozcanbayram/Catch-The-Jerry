@@ -2,10 +2,12 @@ package com.ozcanbayram.catchthejerry
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.view.View
 import android.widget.ImageView
+import android.widget.Toast
 import com.ozcanbayram.catchthejerry.databinding.ActivityMainBinding
 import kotlin.random.Random
 
@@ -35,6 +37,26 @@ class MainActivity : AppCompatActivity() {
         imageArray.add(binding.imageView9)
 
         hideImages()
+
+        //CountDownTimer
+        object : CountDownTimer(10900,1000){
+            override fun onTick(p0: Long) {
+                binding.timeText.text = "Time: ${p0/1000}"
+            }
+
+            override fun onFinish() {
+                binding.timeText.text = "Time is up!"
+                handler.removeCallbacks(runnable)
+
+                for(image in imageArray){
+                    image.visibility=View.INVISIBLE
+                }
+
+                //alert dialog
+
+            }
+
+        }.start()
 
     }
 
