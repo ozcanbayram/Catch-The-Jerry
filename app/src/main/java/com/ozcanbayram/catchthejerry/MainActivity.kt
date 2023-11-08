@@ -1,5 +1,7 @@
 package com.ozcanbayram.catchthejerry
 
+import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -8,6 +10,7 @@ import android.os.Looper
 import android.view.View
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.ozcanbayram.catchthejerry.databinding.ActivityMainBinding
 import kotlin.random.Random
 
@@ -53,6 +56,20 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 //alert dialog
+                val alert = AlertDialog.Builder(this@MainActivity)
+                alert.setTitle("Time is up!")
+                alert.setMessage("Are you want to play again?")
+                alert.setPositiveButton("YES",DialogInterface.OnClickListener { dialogInterface, i ->
+                    //restart
+                    val intentFromMain = intent
+                    finish()
+                    startActivity(intentFromMain)
+                })
+                alert.setNegativeButton("NO",DialogInterface.OnClickListener { dialogInterface, i ->
+                    //exit
+                    System.exit(0)
+                })
+                alert.show()
 
             }
 
