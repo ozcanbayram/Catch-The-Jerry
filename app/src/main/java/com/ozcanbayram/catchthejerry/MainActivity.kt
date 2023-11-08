@@ -66,8 +66,10 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intentFromMain)
                 })
                 alert.setNegativeButton("NO",DialogInterface.OnClickListener { dialogInterface, i ->
-                    //exit
-                    System.exit(0)
+                    //Back to FirstScreen
+                    val intentFromFirstScreen = Intent(this@MainActivity,FirstScreen::class.java)
+                    startActivity(intentFromFirstScreen)
+                    finish()
                 })
                 alert.show()
 
