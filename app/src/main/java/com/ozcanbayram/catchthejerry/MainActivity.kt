@@ -102,4 +102,16 @@ class MainActivity : AppCompatActivity() {
         binding.scoreText.text = "Score: ${score}"
     }
 
+    fun back(view:View){
+        val intentToback = Intent(this@MainActivity,FirstScreen::class.java)
+        startActivity(intentToback)
+        finish()
+    }
+
+    fun restart(view:View){
+        val intentFromMain = intent
+        finish()
+        startActivity(intentFromMain)
+    }
+
 }
