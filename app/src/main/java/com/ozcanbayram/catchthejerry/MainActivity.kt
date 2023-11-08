@@ -71,6 +71,7 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intentFromFirstScreen)
                     finish()
                 })
+                alert.setCancelable(false)
                 alert.show()
 
             }
